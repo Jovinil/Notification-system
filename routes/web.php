@@ -48,16 +48,22 @@ Route::get('/login', function () {
 })->name('login');
 Route::post('/logout', [UserCredentialsController::class, 'logout'])->name('logout');
 
-Route::post('/logging-in', [UserCredentialsController::class, 'login'])->name('user.login');
+Route::post('/logging-in', [UserCredentialsController::class, 'login'])->name('user-login');
 
 Route::get('/otp', function () {
     return view('send-otp');
-})->name('send-otp');
-
-Route::get('/create-account', function(){
-    return view('create-account');
-})->name('create-account');
-
+})->name('send-otp.index');
+Route::get('/otp-sent', [UserCredentialsController::class, 'sendOTP'])->name('send-otp');
+Route::get('/confirm-otp{id}', [UserCredentialsController::class, 'check'])->name('confirm-otp');
+Route::post('/change-password{id}', [UserCredentialsController::class, 'update'])->name('change-password');
 Route::get('/forget-password', function () {
     return view('confirm-otp');
 })->name('forgot-password');
+
+Route::get('/create-account', function () {
+    return view('create-account');
+})->name('create-account');
+
+Route::get('/test', function(){
+    return view('edit-profile');
+});
