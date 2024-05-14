@@ -20,7 +20,8 @@
                     <div class="container-fluid text-center">Login</div>
                 </div>
                 <div class="card-body text-start">
-                    <form action="" method="POST" class="form px-3 py-2">
+                    <form action="{{ route('user.login') }}" method="POST" class="form px-3 py-2">
+                        @csrf
                         <div class="form-group mb-3">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" name="email" id="email" placeholder="test@gmail.com">
@@ -29,7 +30,7 @@
                             <label for="password">Password</label>
                             <input type="password" class="form-control" name="password" id="password" placeholder="test">
                         </div>
-                    </form>
+                    {{-- </form> --}}
                 </div>
                 <div class="card-footer text-muted">
                     <div class="container text-center mb-2">
@@ -43,6 +44,7 @@
                         <button type="submit" class="px-5 btn btn-primary">Login</button>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
 
