@@ -7,6 +7,7 @@ use App\Models\Task;
 use App\Models\User;
 use App\Rules\DateFormat;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class TaskController extends Controller
 {
@@ -19,12 +20,6 @@ class TaskController extends Controller
         return view('pages.user', compact('tasks', 'user', 'currentDate'));
     }
 
-    public function getUserID(int $id){
-        $user = User::find($id);
-
-        return view('crud.create-task', compact('user'));
-    }
-
     public function testCase(){
         Task::create([
             'user_id' => 1,
@@ -34,10 +29,44 @@ class TaskController extends Controller
         ]);
     }
 
+    public function getUserID(int $id){
+        $user = User::find($id)->first();
+        Log::info($user);
+        return view('crud.create-task', compact('user'));
+    }
+
+    // public function createTask(Request $request, int $id)
+    // {
+    //     $validated = $request->validate([
+    //         "user_id" => "required|integer|max:10",
+    //         "task" => "required|max:50",
+    //         "message" => "required|string|max:1000", // Corrected validation rule
+    //         "deadline" => ["required", new DateFormat],
+    //     ]);
+
+    //     $deadline = Carbon::createFromFormat('d/m/Y', $validated['deadline'])->format('Y-m-d');
+
+    //     // Replace the original deadline value with the parsed one
+    //     $validated['deadline'] = $deadline;
+
+    //     $validated['user_id'] = $id;
+
+    //     Task::create($validated);
+
+    //     return redirect()->route("user-index", ['id' => $id])->with('success', 'Task successfully added');
+    // }
+
     public function createTask(Request $request, int $id)
     {
+        // Check if the user already has 5 tasks
+        $taskCount = Task::where('user_id', $id)->count();
+
+        if ($taskCount >= 5) {
+            return redirect()->route("user-index", ['id' => $id])->with('danger', 'You can only have a maximum of 5 tasks.');
+        }
+
+        // Validate the incoming request data
         $validated = $request->validate([
-            "user_id" => "required|integer|max:10",
             "task" => "required|max:50",
             "message" => "required|string|max:1000", // Corrected validation rule
             "deadline" => ["required", new DateFormat],
@@ -47,32 +76,34 @@ class TaskController extends Controller
 
         // Replace the original deadline value with the parsed one
         $validated['deadline'] = $deadline;
-
         $validated['user_id'] = $id;
 
+        // Create the new task
         Task::create($validated);
 
-        return redirect()->route("user", ['id' => $id])->with('success', 'Task successfully added');
+        return redirect()->route("user-index", ['id' => $id])->with('success', 'Task successfully added');
     }
 
-    public function getTask(int $task_id, int $user_id)
+
+    public function getTask(int $user_id, int $task_id)
     {
-        // $user =
+        $user = User::where('id', $user_id)->first();
         $task = Task::where('id', $task_id)->first();
 
-        return view('crud.read-task', compact('task'));
+        return view('crud.read-task', compact('task', 'user'));
     }
 
-    public function editTask(int $id)
+    public function editTask(int $user_id, int $task_id)
     {
-        $task = Task::where('id', $id)->first();
+        $user = User::where('id', $user_id)->first();
+        $task = Task::where('id', $task_id)->first();
 
-        return view('crud.edit-task', compact('task'));
+        return view('crud.edit-task', compact('task', 'user'));
     }
 
-    public function updateTask(Request $request, int $id)
+    public function updateTask(Request $request, int $user_id, int $task_id)
     {
-        $task = Task::where('id', $id)->first();
+        $task = Task::where('id', $task_id)->first();
 
         $validated = $request->validate([
             "task" => "required|max:50",
@@ -87,12 +118,13 @@ class TaskController extends Controller
 
         $task->update($validated);
 
-        return redirect()->route("user", ['id' => $id])->with('success', 'Task successfully added');
+        return redirect()->route("user-index", ['id' => $user_id])->with('success', 'Task successfully updated');
     }
 
-    public function deleteTask(int $id)
+    public function deleteTask(int $user_id, int $task_id)
     {
-        $task = Task::where('id', $id)->first();
+        $task = Task::where('id', $task_id)->first();
         $task->delete();
+        return redirect()->route("user-index", ['id' => $user_id])->with('danger', 'Task successfully deleted');
     }
 }

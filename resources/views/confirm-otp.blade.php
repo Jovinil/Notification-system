@@ -10,7 +10,7 @@
     {{-- <title>{{ $pageTitle}}</title> --}}
 </head>
 
-<body class="px-4 bg-light">
+<body class="px-4">
     <section class="vh-100 d-flex flex-column justify-content-center align-items-center">
 
         <div class="col-12 col-md-8 col-lg-4 shadow">
@@ -21,6 +21,7 @@
                 <div class="card-body text-start">
                     <h5 class="card-title">Please check your phone for a text message with your code. Your code is 6 characters long.</h5>
                     <form action="" method="POST" class="form px-4 py-2 card-text">
+                        @csrf
                         <div class="row">
                             <div class="col-8">
                                 <div class="form-group mb-3">
@@ -33,12 +34,11 @@
                                 <b>**********06</b>
                             </div>
                         </div>
+
+                        <div class="container-fluid text-end">
+                            <button type="submit" class="px-5 btn btn-primary">Submit</button>
+                        </div>
                     </form>
-                </div>
-                <div class="card-footer text-muted">
-                    <div class="container-fluid text-end">
-                        <button type="submit" class="px-5 btn btn-primary">Submit</button>
-                    </div>
                 </div>
             </div>
         </div>

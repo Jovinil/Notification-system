@@ -10,7 +10,7 @@
     {{-- <title>{{ $pageTitle}}</title> --}}
 </head>
 
-<body class="px-4 bg-light">
+<body class="px-4">
 
     <section class="vh-100 d-flex flex-column justify-content-center align-items-center">
         <div class="col-12 col-md-8 col-lg-4 shadow">
@@ -23,28 +23,25 @@
                     <form action="{{ route('user.login') }}" method="POST" class="form px-3 py-2">
                         @csrf
                         <div class="form-group mb-3">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="test@gmail.com">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="test@gmail.com">
                         </div>
                         <div class="form-group mb-3">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" name="password" id="password" placeholder="test">
                         </div>
-                    {{-- </form> --}}
-                </div>
-                <div class="card-footer text-muted">
-                    <div class="container text-center mb-2">
-                        <div class="col-12">
-                            <a href="{{ route('send-otp') }}">Forget Password</a>
-                        </div>
+                        <div class="container text-center mb-2">
+                            <div class="col-12">
+                                <a href="{{ route('send-otp') }}">Forget Password</a>
+                            </div>
 
-                        Dont have an Account? <a href="{{ route('create-account') }}">Sign up</a>
-                    </div>
-                    <div class="container-fluid text-center">
-                        <button type="submit" class="px-5 btn btn-primary">Login</button>
-                    </div>
+                            Dont have an Account? <a href="{{ route('create-account') }}">Sign up</a>
+                        </div>
+                        <div class="container-fluid text-center">
+                            <button type="submit" class="px-5 btn btn-primary">Login</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
             </div>
         </div>
 

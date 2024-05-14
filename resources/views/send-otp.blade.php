@@ -10,7 +10,7 @@
     {{-- <title>{{ $pageTitle}}</title> --}}
 </head>
 
-<body class="px-4 bg-light">
+<body class="px-4">
 
     <section class="vh-100 d-flex flex-column justify-content-center align-items-center">
 
@@ -20,6 +20,7 @@
                     <div class="container-fluiid text-start fs-5 fw-bold">Forgot Password</div>
                 </div>
                 <form action="" method="POST" class="form">
+                    @csrf
                     <div class="card-body text-start">
                         <div class="form-group mb-3">
                             <label for="cp_number">Number</label>

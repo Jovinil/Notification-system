@@ -66,22 +66,13 @@
 
                             <h6>Deadline: {{ $task->deadline ? \Carbon\Carbon::parse($task->deadline)->format('F j, Y') : 'Not specified' }}</h6>
 
-                            {{-- <input class="form-control " type="text" value="{{ $task->message }}" aria-label="Disabled input example" disabled readonly> --}}
                             <textarea class="form-control" placeholder="{{ $task->message }}" id="floatingTextarea2" style="height: 100px"  disabled readonly></textarea>
                         </div>
                     <div class="card-footer text-muted">
                         <div class="container-fluid text-end d-flex flex-column flex-lg-row gap-2">
-                            <form action="{{ route('delete-task', ['id' => $task->id]) }}" method="POST">
-                                <button type="submit" href="" class="btn btn-outline-danger ms-lg-auto">Delete</button>
-                            </form>
-
-                            <form action="{{ route('edit-task', ['id' => $task->id]) }}", method="POST">
-                                <a type="submit" class="btn btn-outline-secondary">Edit</a>
-                            </form>
-
-                            <form action="{{ route('get-task', ['id' => $task->id]) }}">
-                                <a type="submit" class="btn btn-primary">View</a>
-                            </form>
+                            <a href="{{ route('delete-task', ['user_id' => $user->id, 'task_id' => $task->id]) }}" class="btn btn-outline-danger ms-lg-auto">Delete</a>
+                            <a href="{{ route('edit-task', ['user_id' => $user->id, 'task_id' => $task->id]) }}" class="btn btn-outline-secondary">Edit</a>
+                            <a href="{{ route('get-task', ['user_id' => $user->id, 'task_id' => $task->id]) }}" class="btn btn-primary">View</a>
                         </div>
                     </div>
                 </div>
