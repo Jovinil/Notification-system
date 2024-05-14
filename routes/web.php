@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserCredentialsController;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Mail;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::post('/save-account', [UserController::class, 'createAccount'])->name('save-account');
 
 Route::get('/user/{id}', [TaskController::class, 'index'])->name('user-index');
 
@@ -51,14 +54,10 @@ Route::get('/otp', function () {
     return view('send-otp');
 })->name('send-otp');
 
-Route::get('/forget-password', function () {
-    return view('confirm-otp');
-})->name('forgot-password');
-
-Route::get('/create-account', function () {
+Route::get('/create-account', function(){
     return view('create-account');
 })->name('create-account');
 
-Route::get('/test', function(){
-    return view('edit-profile');
-});
+Route::get('/forget-password', function () {
+    return view('confirm-otp');
+})->name('forgot-password');

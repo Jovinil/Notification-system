@@ -12,7 +12,7 @@
     {{-- <title>{{ $pageTitle}}</title> --}}
 </head>
 
-<body class="px-4 bg-light">
+<body class="px-4">
 
     <a href="{{ route('user-index', ['id' => $user->id]) }}" class="mt-3 btn btn-dark">Go back</i></a>
 

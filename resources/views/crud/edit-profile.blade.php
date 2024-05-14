@@ -11,7 +11,7 @@
     {{-- <title>{{ $pageTitle}}</title> --}}
 </head>
 
-<body class="px-4 bg-light">
+<body class="px-4">
 
     <a href="" class="mt-3 btn btn-dark">Go back</i></a>
 

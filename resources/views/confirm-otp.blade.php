@@ -10,7 +10,7 @@
     {{-- <title>{{ $pageTitle}}</title> --}}
 </head>
 
-<body class="px-4 bg-light">
+<body class="px-4">
     <section class="vh-100 d-flex flex-column justify-content-center align-items-center">
 
         <div class="col-12 col-md-8 col-lg-4 shadow">
@@ -33,12 +33,11 @@
                                 <b>**********06</b>
                             </div>
                         </div>
+
+                        <div class="container-fluid text-end">
+                            <button type="submit" class="px-5 btn btn-primary">Submit</button>
+                        </div>
                     </form>
-                </div>
-                <div class="card-footer text-muted">
-                    <div class="container-fluid text-end">
-                        <button type="submit" class="px-5 btn btn-primary">Submit</button>
-                    </div>
                 </div>
             </div>
         </div>
