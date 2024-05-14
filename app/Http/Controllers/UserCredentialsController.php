@@ -12,11 +12,10 @@ class UserCredentialsController extends Controller
 {
     public function login(Request $request){
         $validated = $request->validate([
-            'email' => 'required',
+            'username' => 'required',
             'password' => 'required'
         ]);
         if(Auth::attempt($validated)){
-            dd(Auth::id());
             $request->session()->regenerate();
             return redirect()->route('user-index', Auth::id());
         }
