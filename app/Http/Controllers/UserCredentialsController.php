@@ -101,9 +101,9 @@ class UserCredentialsController extends Controller
 
     public function createOTP($id)
     {
-        $otp = rand(0, 9999);
-        if ($otp < 1000) {
-            $otp = str_pad($otp, 4, '0');
+        $otp = rand(0, 999999);
+        if ($otp < 100000) {
+            $otp = str_pad($otp, 6, '0');
         }
         Otp::create(['otp' => $otp, 'user_id' => $id]);
         return $otp;
