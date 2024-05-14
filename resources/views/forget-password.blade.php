@@ -25,7 +25,7 @@
                             <div class="col-8">
                                 <div class="form-group mb-3">
                                     <label for="number">Code:</label>
-                                    <input type="text" class="form-control" name="number" id="number" placeholder="number">
+                                    <input type="text" class="form-control" name="otp" id="number" placeholder="number">
                                 </div>
                             </div>
                             <div class="col-4">
