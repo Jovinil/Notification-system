@@ -12,37 +12,33 @@
 
 <body class="px-4 bg-light">
 
-    <section class="vh-100 d-flex flex-column justify-content-center align-items-center">
-        <div class="row mb-3">
-            <div class="container-fluiid text-center fs-5 fw-bold">Create Task</div>
-        </div>
+    <div class="container">
+        <div class="row gap-4 d-flex justify-content-evenly">
+            <div class="card text-center p-0 col-5">
+                <div class="card-header">
+                    <div class="container-fluiid text-start fs-5 fw-bold">{{ $task->task }}</div>
+                </div>
+                    <div class="card-body text-start">
+                        <div class="col-12 d-flex h-auto">
+                            <h6>Position: <b>CEO</b> </h6>
+                            <h6 class="ms-auto">{{ $task->created_at ? \Carbon\Carbon::parse($task->created_at)->format('F j, Y') : 'Not specified' }}</h6>
+                        </div>
 
-        <div class="col-12 col-md-8 col-lg-5">
-            <form action="" method="POST" class="form px-3 py-5 rounded-3 shadow bg-light">
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" name="receiver" id="receiver" placeholder="test@gmail.com">
-                    <label for="receiver">To:</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="date" class="form-control" name="deadline" id="deadline" placeholder="test">
-                    <label for="deadline">Deadline:</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" name="task" id="tasj" placeholder="test">
-                    <label for="task">Task:</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <textarea class="form-control" name="message" id="message" cols="30" rows="20" style="height: 100px"></textarea>
-                    <label for="message">Message:</label>
-                </div>
-                <div class="row">
-                    <div class="container-fluid text-center">
-                        <button type="submit" class="px-5 btn btn-primary">Submit</button>
+                        <h6>Deadline: {{ $task->deadline ? \Carbon\Carbon::parse($task->deadline)->format('F j, Y') : 'Not specified' }}</h6>
+
+                        {{-- <input class="form-control " type="text" value="{{ $task->message }}" aria-label="Disabled input example" disabled readonly> --}}
+                        <textarea class="form-control" placeholder="{{ $task->message }}" id="floatingTextarea2" style="height: 100px"  disabled readonly></textarea>
+                    </div>
+                <div class="card-footer text-muted">
+                    <div class="container-fluid text-end d-flex flex-column flex-lg-row gap-2">
+                        {{-- <a href="{{ route('delete-task', ['id' => $task->id]) }}" class="btn btn-outline-danger ms-lg-auto">Delete</a>
+                        <a href="{{ route('edit-task', ['id' => $task->id]) }}" class="btn btn-outline-secondary">Edit</a>
+                        <a href="{{ route('get-task', ['id' => $task->id]) }}" class="btn btn-primary">View</a> --}}
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
-    </section>
+    </div>
 
 </body>
 

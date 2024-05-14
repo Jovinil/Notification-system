@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-Route::get('/user/{id}', [TaskController::class, 'index'])->name('user.index');
+Route::get('/user/{id}', [TaskController::class, 'index'])->name('user-index');
 
 // Route::get('/user/create-task', function(){
 //     return view('crud.create-task');
@@ -26,6 +26,11 @@ Route::get('/populate', [TaskController::class, 'testCase']);
 
 Route::get('/user/create-task/{id}', [TaskController::class, 'getUserId'])->name('create-task');
 Route::post('/user/save-task/{id}', [TaskController::class, 'createTask'])->name('save-task');
+
+Route::get('/user/view-task/{id}', [TaskController::class, 'getTask'])->name('get-task');
+Route::get('/user/edit-task/{id}', [TaskController::class, 'editTask'])->name('edit-task');
+Route::get('/user/update-task/{id}', [TaskController::class, 'updateTask'])->name('update-task');
+Route::get('/user/delete-task/{id}', [TaskController::class, 'deleteTask'])->name('delete-task');
 
 Route::get('/', function () {
     return view('index');
@@ -47,7 +52,7 @@ Route::get('/otp', function () {
 })->name('send-otp');
 
 Route::get('/forget-password', function () {
-    return view('forget-password');
+    return view('confirm-otp');
 })->name('forgot-password');
 
 Route::get('/create-account', function () {
@@ -55,5 +60,5 @@ Route::get('/create-account', function () {
 })->name('create-account');
 
 Route::get('/test', function(){
-    return view('crud.edit-profile');
+    return view('edit-profile');
 });
