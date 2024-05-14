@@ -14,7 +14,7 @@
 
     <div class="container d-flex align-items-center">
         <div class="row">January 3, 2024</div>
-        <a href="{{ route('create.task', ['id' => $user->id]) }}" class="btn btn-primary ms-auto">Add Task</a>
+        <a href="{{ route('create-task', ['id' => $user->id]) }}" class="btn btn-primary ms-auto">Add Task</a>
     </div>
 
     <div class="row container">
