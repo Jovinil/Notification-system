@@ -39,7 +39,7 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/otp', function () {
-    return view('otp');
+    return view('send-otp');
 })->name('send-otp');
 
 Route::get('/forget-password', function () {
