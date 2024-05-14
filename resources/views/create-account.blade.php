@@ -10,7 +10,7 @@
     {{-- <title>{{ $pageTitle}}</title> --}}
 </head>
 
-<body class="px-4 bg-light">
+<body class="px-4">
 
     <section class="vh-100 d-flex flex-column justify-content-center align-items-center">
         <div class="col-12 col-md-8 col-lg-4 shadow">
@@ -20,18 +20,19 @@
                     <div class="container-fluid text-center">Sign In</div>
                 </div>
                 <div class="card-body text-start">
-                    <form action="" method="POST" class="form px-4 py-2">
+                    <form action="{{ route('save-account') }}" method="POST" class="form px-4 py-2">
+                        @csrf
                         <div class="form-group mb-3">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Name Test">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Name Test">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="test@gmail.com">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="John Doe">
                         </div>
                         <div class="form-group mb-3">
                             <label for="sender">Cellphone Number</label>
-                            <input type="text" class="form-control" name="sender" id="sender" placeholder="test@gmail.com">
+                            <input type="text" class="form-control" name="cp_number" id="cp_number" placeholder="09123456789">
                         </div>
                         <div class="form-group mb-3">
                             <label for="password">Password</label>
@@ -39,7 +40,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="confirm_pass">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirm_pass" placeholder="test">
+                            <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="test">
                         </div>
                         <div class="row">
                             <div class="container-fluid">

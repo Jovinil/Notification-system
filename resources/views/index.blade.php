@@ -10,7 +10,7 @@
     {{-- <title>{{ $pageTitle}}</title> --}}
 </head>
 
-<body class="py-5 px-4 bg-light">
+<body class="py-5 px-4">
     <div class="row mb-3">
         <div class="col-7 fs-4 fw-bold">LogoName</div>
         <div class="col-5 d-flex">

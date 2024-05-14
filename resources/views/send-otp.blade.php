@@ -10,7 +10,7 @@
     {{-- <title>{{ $pageTitle}}</title> --}}
 </head>
 
-<body class="px-4 bg-light">
+<body class="px-4">
 
     <section class="vh-100 d-flex flex-column justify-content-center align-items-center">
 
