@@ -21,6 +21,7 @@
                 <div class="card-body text-start">
                     <h5 class="card-title">Please check your phone for a text message with your code. Your code is 6 characters long.</h5>
                     <form action="" method="POST" class="form px-4 py-2 card-text">
+                        @csrf
                         <div class="row">
                             <div class="col-8">
                                 <div class="form-group mb-3">
