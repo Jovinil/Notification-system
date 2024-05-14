@@ -13,11 +13,11 @@
     @endif
 
     <div class="container d-flex align-items-center">
-        <div class="row">January 3, 2024</div>
-        <a href="{{ route('create.task', ['id' => $user->id]) }}" class="btn btn-primary ms-auto">Add Task</a>
+        <div class="row fs-4 fw-bold">{{ $currentDate }}</div>
+        <a href="{{ route('create-task', ['id' => $user->id]) }}" class="btn btn-primary ms-auto">Add Task</a>
     </div>
 
-    <div class="row container">
+    {{-- <div class="row container">
         <div id="carouselExampleControls" class="carousel slide bg-dark py-3" data-bs-ride="carousel" data-bs-interval="false">
             <div class="col-8 mx-auto">
                 <div class="carousel-inner">
@@ -50,7 +50,7 @@
               <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </div>
+    </div> --}}
 
     <div class="container">
         <div class="row gap-4 d-flex justify-content-evenly">
@@ -60,49 +60,33 @@
                         <div class="container-fluiid text-start fs-5 fw-bold">{{ $task->task }}</div>
                     </div>
                         <div class="card-body text-start">
-                            <div class="col-12 d-flex">
-                                <h6>Position: <b>CEO</b> </h6>
-                                <h6 class="ms-auto">{{ $task->created_at ? \Carbon\Carbon::parse($task->created_at)->format('F j, Y') : 'Not specified' }}</h6>
+                            <div class="col-12 d-flex h-auto">
+                                <h6>Created at: {{ $task->created_at ? \Carbon\Carbon::parse($task->created_at)->format('F j, Y') : 'Not specified' }}</h6>
                             </div>
 
-                            <h6>From: <b>{{ $task->sender }}</b> </h6>
                             <h6>Deadline: {{ $task->deadline ? \Carbon\Carbon::parse($task->deadline)->format('F j, Y') : 'Not specified' }}</h6>
 
-                            <input class="form-control" type="text" value="{{ $task->message }}" aria-label="Disabled input example" disabled readonly>
+                            {{-- <input class="form-control " type="text" value="{{ $task->message }}" aria-label="Disabled input example" disabled readonly> --}}
+                            <textarea class="form-control" placeholder="{{ $task->message }}" id="floatingTextarea2" style="height: 100px"  disabled readonly></textarea>
                         </div>
                     <div class="card-footer text-muted">
-                        <div class="container-fluid text-end">
-                            <a href="#" class="btn btn-outline-danger ms-auto">Delete</a>
-                            <a href="#" class="btn btn-primary">View</a>
+                        <div class="container-fluid text-end d-flex flex-column flex-lg-row gap-2">
+                            <form action="{{ route('delete-task', ['id' => $task->id]) }}" method="POST">
+                                <button type="submit" href="" class="btn btn-outline-danger ms-lg-auto">Delete</button>
+                            </form>
+
+                            <form action="{{ route('edit-task', ['id' => $task->id]) }}", method="POST">
+                                <a type="submit" class="btn btn-outline-secondary">Edit</a>
+                            </form>
+
+                            <form action="{{ route('get-task', ['id' => $task->id]) }}">
+                                <a type="submit" class="btn btn-primary">View</a>
+                            </form>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
     </div>
-
-
-            {{-- <div class="container-fluid shadow px-4 py-3 rounded-3">
-                <div class="row mb-3">{{ $task->task }}</div>
-
-                <div class="row">
-                    <div class="col-12 d-flex">
-                        <h6>Position: <b>CEO</b> </h6>
-                        <h6 class="ms-auto">{{ $task->created_at ? \Carbon\Carbon::parse($task->created_at)->format('F j, Y') : 'Not specified' }}</h6>
-                    </div>
-
-                    <h6>From: <b>{{ $task->sender }}</b> </h6>
-                    <h6>Deadline: {{ $task->deadline ? \Carbon\Carbon::parse($task->deadline)->format('F j, Y') : 'Not specified' }}</h6>
-
-                    <input class="form-control" type="text" value="{{ $task->message }}" aria-label="Disabled input example" disabled readonly>
-
-                    <div class="col-12 d-flex gap-2 mt-3">
-                        <a href="#" class="btn btn-outline-danger ms-auto">Delete</a>
-                        <a href="#" class="btn btn-primary">Reply</a>
-                    </div>
-                </div>
-            </div> --}}
-
-
 
 @endsection
