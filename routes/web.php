@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-Route::post('/save-account', [UserController::class, 'createAccount'])->name('save-account');
+Route::post('/save-account', [UserController::class, 'createUser'])->name('save-account');
 
 Route::get('/user/{id}', [TaskController::class, 'index'])->name('user-index');
 

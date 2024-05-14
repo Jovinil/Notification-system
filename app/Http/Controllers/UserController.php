@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 class UserController extends Controller
 {
     public function createUser(Request $request){
-        Log::info($request);
+        Log::info('Incoming request data: ', $request->all());
         $validated = $request->validate([
             "username" => 'required|string|max:30|unique:users,username',
             "name" => "required|string|max:50",
@@ -19,12 +19,18 @@ class UserController extends Controller
             "password" => "required|string|max:20"
         ]);
 
+        Log::info('Validated data: ', $validated);
+
         $hash = Hash::make($validated['password']);
 
         $validated['password'] = $hash;
 
-        User::create($validated);
+        if ($validated){
+            Log::info('Validated data: ', $validated);
+        }
 
-        return redirect()->route('employee.index')->with('success', 'Employee record added successfully');
+        // User::create($validated);
+
+        // return redirect()->route('employee.index')->with('success', 'Employee record added successfully');
     }
 }
