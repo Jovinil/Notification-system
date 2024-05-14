@@ -14,7 +14,7 @@
 
 <body class="px-4 bg-light">
 
-    <a href="{{ route('user', ['id' => $user->id]) }}" class="mt-3 btn btn-dark">Go back</i></a>
+    <a href="{{ route('user-index', ['id' => $user->id]) }}" class="mt-3 btn btn-dark">Go back</i></a>
 
     @if ($errors->any())
     <div class="alert alert-danger mt-3" role="alert">
@@ -26,14 +26,14 @@
     </div>
     @endif
 
-    <section class="vh-100 d-flex flex-column justify-content-center align-items-center">
+    <section class="mt-5 d-flex flex-column justify-content-center align-items-center">
 
         <div class="col-12 col-md-8 col-lg-4 shadow">
             <div class="card text-center">
                 <div class="card-header">
                     <div class="container-fluiid text-center fs-5 fw-bold">Edit Task</div>
                 </div>
-                <form action="{{ route('update-task', ['id' => $task->id]) }}" method="POST">
+                <form action="{{ route('update-task', ['user_id' => $user->id,'task_id' => $task->id]) }}" method="POST">
                     @csrf
                     <div class="card-body text-start">
                         <div class="form-group mb-3">

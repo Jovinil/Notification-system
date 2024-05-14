@@ -14,7 +14,7 @@
 
 <body class="px-4 bg-light">
 
-    <a href="{{ route('user', ['id' => $user->id]) }}" class="mt-3 btn btn-dark">Go back</i></a>
+    <a href="{{ route('user-index', ['id' => $user->id]) }}" class="mt-3 btn btn-dark">Go back</i></a>
 
     @if ($errors->any())
     <div class="alert alert-danger mt-3" role="alert">
