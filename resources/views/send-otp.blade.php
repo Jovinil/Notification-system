@@ -21,9 +21,9 @@
                 </div>
                 <form action="" method="POST" class="form">
                     <div class="card-body text-start">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" name="cp_number" id="cp_number" placeholder="test">
+                        <div class="form-group mb-3">
                             <label for="cp_number">Number</label>
+                            <input type="text" class="form-control" name="cp_number" id="cp_number" placeholder="test">
                         </div>
 
                         <div class="container-fluid text-end">

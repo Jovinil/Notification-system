@@ -21,13 +21,13 @@
                 </div>
                 <div class="card-body text-start">
                     <form action="" method="POST" class="form px-3 py-2">
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="test@gmail.com">
+                        <div class="form-group mb-3">
                             <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="test@gmail.com">
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control" name="password" id="password" placeholder="test">
+                        <div class="form-group mb-3">
                             <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="test">
                         </div>
                     </form>
                 </div>
@@ -46,36 +46,6 @@
             </div>
         </div>
 
-        {{-- <div class="row mb-3">
-            <div class="container-fluiid text-center fs-5 fw-bold">Welcome Back</div>
-            <div class="container-fluid text-center">Login</div>
-        </div>
-
-        <div class="col-12 col-md-8 col-lg-4">
-            <form action="" method="POST" class="form px-3 py-5 rounded-3 shadow bg-light">
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="test@gmail.com">
-                    <label for="email">Email</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control" name="password" id="password" placeholder="test">
-                    <label for="password">Password</label>
-                </div>
-
-                <div class="row">
-                    <div class="container text-center mb-2">
-                        <div class="col-12">
-                            <a href="#">Forget Password</a>
-                        </div>
-
-                        Dont have an Account? <a href="#">Sign up</a>
-                    </div>
-                    <div class="container-fluid text-center">
-                        <button type="submit" class="px-5 btn btn-primary">Login</button>
-                    </div>
-                </div>
-            </form>
-        </div> --}}
     </section>
 
 </body>

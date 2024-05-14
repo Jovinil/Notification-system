@@ -23,9 +23,9 @@
                     <form action="" method="POST" class="form px-4 py-2 card-text">
                         <div class="row">
                             <div class="col-8">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="number" id="number" placeholder="number">
+                                <div class="form-group mb-3">
                                     <label for="number">Code:</label>
+                                    <input type="text" class="form-control" name="number" id="number" placeholder="number">
                                 </div>
                             </div>
                             <div class="col-4">

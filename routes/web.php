@@ -23,8 +23,8 @@ Route::get('/user/{id}', [TaskController::class, 'index'])->name('user.index');
 // })->name('create.task');
 Route::get('/populate', [TaskController::class, 'testCase']);
 
-Route::get('/user/create-task/{id}', [TaskController::class, 'getUserId'])->name('create.task');
-Route::post('/user/save-task/{id}', [TaskController::class, 'createTask'])->name('save.task');
+Route::get('/user/create-task/{id}', [TaskController::class, 'getUserId'])->name('create-task');
+Route::post('/user/save-task/{id}', [TaskController::class, 'createTask'])->name('save-task');
 
 Route::get('/', function () {
     return view('index');
@@ -49,3 +49,7 @@ Route::get('/forget-password', function () {
 Route::get('/create-account', function () {
     return view('create-account');
 })->name('create-account');
+
+Route::get('/test', function(){
+    return view('crud.edit-profile');
+});
