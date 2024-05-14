@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Task;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -15,6 +16,10 @@ class UserController extends Controller
             "phone_number" => "required|string|max:11|starts_with:09|unique:tasks,phone_number",
             "password" => "required|string|max:20"
         ]);
+
+        $hash = Hash::make($validated['password']);
+
+        $validated['password'] = $hash;
 
         User::create($validated);
 

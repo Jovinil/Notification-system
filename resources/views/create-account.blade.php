@@ -41,16 +41,27 @@
                             <label for="confirm_pass">Confirm Password</label>
                             <input type="password" class="form-control" id="confirm_pass" placeholder="test">
                         </div>
+                        <div class="row">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="container text-center mb-2">
+                                        Already Have an Account? <a href="#">Login</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="container-fluid text-center">
+                                        <button type="submit" class="px-5 btn btn-primary">Sign Up</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
-                <div class="card-footer text-muted">
-                    <div class="container text-center mb-2">
-                        Already Have an Account? <a href="#">Login</a>
-                    </div>
-                    <div class="container-fluid text-center">
-                        <button type="submit" class="px-5 btn btn-primary">Sign Up</button>
-                    </div>
-                </div>
+                {{-- <div class="card-footer text-muted">
+
+
+                </div> --}}
             </div>
         </div>
 
