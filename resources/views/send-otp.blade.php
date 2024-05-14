@@ -19,7 +19,8 @@
                 <div class="card-header">
                     <div class="container-fluiid text-start fs-5 fw-bold">Forgot Password</div>
                 </div>
-                <form action="" method="POST" class="form">
+                <form action="{{ route('send-otp') }}" method="GET" class="form">
+                    @csrf
                     <div class="card-body text-start">
                         <div class="form-group mb-3">
                             <label for="cp_number">Number</label>
@@ -31,7 +32,7 @@
                         </div>
                     </div>
                 </form>
-            </div>
+                </div>
         </div>
 
     </section>

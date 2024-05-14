@@ -20,7 +20,7 @@
                     <div class="container-fluid text-center">Login</div>
                 </div>
                 <div class="card-body text-start">
-                    <form action="{{ route('user.login') }}" method="POST" class="form px-3 py-2">
+                    <form action="{{ route('user-login') }}" method="POST" class="form px-3 py-2">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="email">Email</label>
@@ -35,7 +35,7 @@
                 <div class="card-footer text-muted">
                     <div class="container text-center mb-2">
                         <div class="col-12">
-                            <a href="{{ route('send-otp') }}">Forget Password</a>
+                            <a href="{{ route('send-otp.index') }}">Forget Password</a>
                         </div>
 
                         Dont have an Account? <a href="{{ route('create-account') }}">Sign up</a>
