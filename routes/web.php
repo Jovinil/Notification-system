@@ -46,6 +46,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+
 Route::post('/logout', [UserCredentialsController::class, 'logout'])->name('logout');
 
 Route::post('/logging-in', [UserCredentialsController::class, 'login'])->name('user.login');

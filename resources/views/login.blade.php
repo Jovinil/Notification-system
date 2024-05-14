@@ -24,7 +24,7 @@
                         @csrf
                         <div class="form-group mb-3">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" name="username" id="username" placeholder="test@gmail.com">
+                            <input type="text" class="form-control" name="username" id="username" placeholder="JonhDoe">
                         </div>
                         <div class="form-group mb-3">
                             <label for="password">Password</label>

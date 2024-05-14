@@ -10,27 +10,46 @@ use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
-    public function createUser(Request $request){
+    public function createUser(Request $request)
+    {
         Log::info('Incoming request data: ', $request->all());
+
+        // Validate the request data
         $validated = $request->validate([
-            "username" => 'required|string|max:30|unique:users,username',
             "name" => "required|string|max:50",
-            "phone_number" => "required|string|max:11|starts_with:09|unique:user,phone_number",
-            "password" => "required|string|max:20"
+            "username" => 'required|string|max:30|unique:users,username',
+            "cp_number" => "required|string|max:11|starts_with:09|unique:users,cp_number",
+            "password" => "required|string|max:20",
+            "confirm_password" => "required|string|max:20"
         ]);
 
-        Log::info('Validated data: ', $validated);
+        // Check if passwords match
+        if ($validated['password'] !== $validated['confirm_password']) {
+            return redirect()->back()->withErrors(['password' => 'Passwords do not match'])->withInput();
+        } else {
+            // Remove confirm_password from validated data
+            unset($validated['confirm_password']);
 
-        $hash = Hash::make($validated['password']);
+            // Log validated data before hashing
+            Log::info('Validated data before hashing: ', $validated);
 
-        $validated['password'] = $hash;
+            // Hash the password
+            $validated['password'] = Hash::make($validated['password']);
 
-        if ($validated){
-            Log::info('Validated data: ', $validated);
+            // Log validated data before user creation
+            Log::info('Validated data before user creation: ', $validated);
+
+            // Explicitly specify columns
+            $user = User::create([
+                'name' => $validated['name'],
+                'username' => $validated['username'],
+                'cp_number' => $validated['cp_number'],
+                'password' => $validated['password'],
+            ]);
+
+            Log::info('User created: ', $user->toArray());
+
+            return redirect()->route('login');
         }
-
-        // User::create($validated);
-
-        // return redirect()->route('employee.index')->with('success', 'Employee record added successfully');
     }
 }
