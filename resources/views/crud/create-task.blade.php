@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="task">Task:</label>
-                            <input type="text" class="form-control" name="task" id="task" placeholder="test">
+                            <input type="text" class="form-control" name="task" id="task">
                         </div>
                         <div class="form-group mb-3">
                             <label for="message">Message:</label>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group mb-3 d-none">
                             <label for="user_id">User ID:</label>
-                            <input type="text" class="form-control" name="user_id" id="user_id" placeholder="test" value="{{ $user->id }}">
+                            <input type="text" class="form-control" name="user_id" id="user_id" value="{{ $user->id }}">
                         </div>
                     </div>
                     <div class="card-footer text-muted">

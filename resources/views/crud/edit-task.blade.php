@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="task">Task:</label>
-                            <input type="text" class="form-control" name="task" id="task" placeholder="test">
+                            <input type="text" class="form-control" name="task" id="task">
                         </div>
                         <div class="form-group mb-3">
                             <label for="message">Message:</label>

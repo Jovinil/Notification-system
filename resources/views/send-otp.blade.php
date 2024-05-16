@@ -24,7 +24,7 @@
                     <div class="card-body text-start">
                         <div class="form-group mb-3">
                             <label for="cp_number">Number</label>
-                            <input type="text" class="form-control" name="cp_number" id="cp_number" placeholder="test">
+                            <input type="text" class="form-control" name="cp_number" id="cp_number">
                         </div>
 
                         <div class="container-fluid text-end">

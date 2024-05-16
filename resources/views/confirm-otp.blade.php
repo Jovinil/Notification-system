@@ -21,17 +21,17 @@
                 <div class="card-body text-start">
                     <h5 class="card-title">Please check your phone for a text message with your code. Your code is 6 characters long.</h5>
                     <form action="{{ route('confirm-otp', $user->id) }}" method="get" class="form px-4 py-2 card-text">
-                        <div class="row">
+                        <div class="row d-flex justify-content-center">
                             <div class="col-8">
                                 <div class="form-group mb-3">
                                     <label for="number">Code:</label>
                                     <input type="text" class="form-control" name="otp" id="number" placeholder="number">
                                 </div>
                             </div>
-                            <div class="col-4">
+                            {{-- <div class="col-4">
                                 We sent your code to:
                                 <b>**********06</b>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="container-fluid text-end">

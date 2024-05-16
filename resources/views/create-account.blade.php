@@ -42,14 +42,14 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="test">
+                            <input type="password" class="form-control" name="password" id="password">
                             @error('password')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
                             <label for="confirm_password">Confirm Password</label>
-                            <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="test">
+                            <input type="password" class="form-control" name="confirm_password" id="confirm_password">
                             @error('confirm_password')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
