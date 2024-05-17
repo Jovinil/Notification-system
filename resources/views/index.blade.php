@@ -14,8 +14,8 @@
     <div class="row mb-3">
         <div class="col-7 fs-4 fw-bold">Notifiaction-System</div>
         <div class="col-5 d-flex">
-            <a href="{{ route('create-account') }}" class="btn ms-auto">Sign up</a>
-            <a href="{{ route('login') }}" class="btn ms-1">Login</a>
+            <a href="{{ route('create-account') }}" class="btn btn-primary ms-auto">Sign up</a>
+            <a href="{{ route('login') }}" class="btn btn-outline-secondary ms-1">Login</a>
         </div>
     </div>
 
