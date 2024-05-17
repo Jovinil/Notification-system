@@ -21,12 +21,16 @@
                     <div class="container-fluiid text-start fs-5 fw-bold">{{ $task->task }}</div>
                 </div>
                 <div class="card-body text-start">
-                    <div class="col-12 d-flex h-auto">
-                        <h6>Position: <b>CEO</b> </h6>
-                        <h6 class="ms-auto">{{ $task->created_at ? \Carbon\Carbon::parse($task->created_at)->format('F j, Y') : 'Not specified' }}</h6>
+                    <div class="col-12 d-flex h-auto flex-column">
+                        <div class="col-12 d-flex h-auto">
+                            <h6>Created at: {{ $task->created_at ? \Carbon\Carbon::parse($task->created_at)->format('F j, Y') : 'Not specified' }}</h6>
+                        </div>
+
+                        <h6>Deadline: {{ $task->deadline ? \Carbon\Carbon::parse($task->deadline)->format('F j, Y') : 'Not specified' }}</h6>
+
                     </div>
 
-                    <h6>Deadline: {{ $task->deadline ? \Carbon\Carbon::parse($task->deadline)->format('F j, Y') : 'Not specified' }}</h6>
+                    {{-- <h6>Deadline: {{ $task->deadline ? \Carbon\Carbon::parse($task->deadline)->format('F j, Y') : 'Not specified' }}</h6> --}}
 
                     {{-- <input class="form-control " type="text" value="{{ $task->message }}" aria-label="Disabled input example" disabled readonly> --}}
                     <textarea class="form-control" placeholder="{{ $task->message }}" id="floatingTextarea2" style="height: 100px"  disabled readonly></textarea>
