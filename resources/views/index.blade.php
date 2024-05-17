@@ -12,10 +12,10 @@
 
 <body class="py-5 px-4">
     <div class="row mb-3">
-        <div class="col-7 fs-4 fw-bold">Notifiaction-System</div>
+        <div class="col-7 fs-4 fw-bold">Notification-System</div>
         <div class="col-5 d-flex">
-            <a href="{{ route('create-account') }}" class="btn btn-primary ms-auto">Sign up</a>
-            <a href="{{ route('login') }}" class="btn btn-outline-secondary ms-1">Login</a>
+            <a href="{{ route('create-account') }}" class="btn btn-outline-secondary ms-auto">Sign up</a>
+            <a href="{{ route('login') }}" class="btn btn-primary ms-1">Login</a>
         </div>
     </div>
 
